@@ -1,0 +1,4 @@
+install vue router:vue add router
+use hitory mode for router:true
+
+default bootstrap layout breakpoints
