@@ -1,5 +1,5 @@
 <template>
-  <div class="card my-1 p-3">
+  <div class="card my-1 p-3 gradient">
     <div class="row">
       <div class="col-md-12 ">
         <div class="float-end">
@@ -31,7 +31,8 @@ export default {
   },
 
 }
-
-
-
 </script>
+
+<style >
+
+</style>

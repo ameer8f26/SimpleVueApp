@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-md-3 ">
-      <div class="card">
+      <div class="card gradient">
         <div class="card-header">
           <h5>Filter Results</h5>
         </div>
@@ -15,7 +15,7 @@
               <div class="row ">
                 <div class="col-sm-4 col-md-12 ">
                   <label for="filter_by_min_score" class="form-label">Minimum Score</label>
-                  <input type="number" id="filter_by_min_score" class="form-control rounded-0 border-0" v-model="min_score" @keyup="searchByMinScore">   
+                  <input type="number" id="filter_by_min_score" class="form-control rounded-0 border-0" v-model="min_score" @keyup="searchByMinScore" placeholder="Minimum score">
                 </div>
                 <div class="col-sm-4 col-md-12 mt-md-1 ">
                   <label for="order_by" class="form-label">Order By</label>
@@ -34,8 +34,8 @@
                   </div>
                 </div>
                 <div class="col-sm-4 col-md-12 mt-md-1 " v-if="filters_cleared">
-                  <label for="filter_by_min_score" class="form-label">Clear Filters</label>
-                  <button id="filter_by_min_score" class="form-control rounded-0 border-0 w-100 text-white" @click="clearFilters">Clear</button>
+                  <label for="clear_filters" class="form-label">Clear Filters</label>
+                  <button id="clear_filters" class="form-control rounded-0 border-0 w-100 text-white" @click="clearFilters">Clear</button>
                 </div>
               </div>
             </div>
@@ -62,7 +62,6 @@
 <script>
 import axios from "axios";
 import Game from '../components/Game.vue'
-// import '@ocrv/vue-tailwind-pagination/styles'
 
 export default {
   name: 'Home',
@@ -78,6 +77,7 @@ export default {
       order_by: 'release_date',
       order_dir: 'asc',
       filters_cleared: false,
+      page: 1
     };
   },
 
@@ -147,17 +147,23 @@ export default {
         this.games = this.games.sort((a,b) => (a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0))
     },
     searchByName(){
-      if (this.name != null) {
-        this.games = this.games.filter(item => item.name.toLowerCase().indexOf(this.name) > -1);
+      if (this.name) {
+        this.games = this.games_unfiltered.filter(item => item.name.toLowerCase().indexOf(this.name) > -1);
         this.orderByChanged()
         this.filters_cleared = true
       }
+      else{
+        this.clearFilters()
+      }
     },
     searchByMinScore(){
-      if (this.min_score != null) {
-        this.games = this.games.filter(item => item.rating.toFixed(0) >= this.min_score);
+      if (this.min_score) {
+        this.games = this.games_unfiltered.filter(item => item.rating.toFixed(0) >= this.min_score);
         this.orderByChanged()
         this.filters_cleared = true
+      }
+      else{
+        this.clearFilters()
       }
     },
     clearFilters(){
@@ -176,3 +182,11 @@ export default {
 
 }
 </script>
+
+<style>
+.gradient {
+  border-bottom: 6px solid transparent;
+  border-image: linear-gradient(to right, rgba(23, 124, 217, 0.8), rgba(182, 175, 175, 0.74));
+  border-image-slice: 1;
+}
+</style>

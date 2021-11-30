@@ -12,7 +12,7 @@
     </div>
     <div class="container-fluid">
       <router-view/>
-    </div>  
+    </div>
   </div>
 </template>
 
@@ -23,9 +23,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body{
+body {
   font-family: 'Mulish', sans-serif;
-  background-image: linear-gradient(#081221 , #03080f);
+  background-image: linear-gradient(#081221, #03080f);
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin: 0;
@@ -33,17 +33,16 @@ body{
   color: #c1d1e8 !important;
 }
 
-a, h1,h2,h3,h4,h5,h6, label{
+a, h1, h2, h3, h4, h5, h6, label {
   font-family: 'Montserrat', sans-serif;
-  color:#ffffff !important;
+  color: #ffffff !important;
 }
 
-.router-link{
+.router-link {
   text-decoration: none;
   display: block;
   font-size: 22px;
   font-weight: bold;
-
 }
 
 /*@media screen and (min-width:  810px){
@@ -52,20 +51,24 @@ a, h1,h2,h3,h4,h5,h6, label{
   }
 }*/
 
-.router-link:hover{
-  color:#e9eef5 !important;
+.router-link:hover {
+  color: #cdcdcd !important;
 }
 
-.card{
+.router-link:active {
+  color: #898989 !important;
+}
+
+.card {
   background: #0e1a2b !important;
 }
 
-button{
+button {
   font-family: 'Montserrat', sans-serif;
   background: #5692e8 !important;
 }
 
-input,select, textarea{
+input, select, textarea {
   background: #182c47 !important;
   color: #c1d1e8 !important;
   border: none;

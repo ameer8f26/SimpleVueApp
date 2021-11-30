@@ -14,13 +14,13 @@
           </div>
           <div class="col-md-6 ">
             <label for="email" class="form-label">Email Address *</label>
-            <input type="text" id="filter_by_min_score" class="form-control rounded-0 border-0">  
+            <input type="email" id="email" class="form-control rounded-0 border-0">
           </div>
         </div>
         <div class="row mt-2">
           <div class="col-md-12">
             <label for="message" class="form-label">Message *</label>
-            <textarea class="form-control rounded-0 border-0"></textarea>
+            <textarea class="form-control rounded-0 border-0" id="message"></textarea>
           </div>
         </div>
         <div class="float-end mt-2">
