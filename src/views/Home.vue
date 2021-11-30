@@ -148,12 +148,9 @@ export default {
     },
     searchByName(){
       if (this.name) {
-        this.games = this.games_unfiltered.filter(item => item.name.toLowerCase().indexOf(this.name) > -1);
+        this.games = this.games_unfiltered.filter(item => item.name.toLowerCase().indexOf(this.name.toLowerCase()) > -1);
         this.orderByChanged()
         this.filters_cleared = true
-      }
-      else{
-        this.clearFilters()
       }
     },
     searchByMinScore(){
@@ -161,9 +158,6 @@ export default {
         this.games = this.games_unfiltered.filter(item => item.rating.toFixed(0) >= this.min_score);
         this.orderByChanged()
         this.filters_cleared = true
-      }
-      else{
-        this.clearFilters()
       }
     },
     clearFilters(){
